@@ -1,4 +1,4 @@
-// File: DistanceClassArguements
+// File: DistanceClassArguments
 // Created by Abigail Sturgeon on 9/26/2017 for CS1410.
 // Copyright (c) 2017 WSU
 
@@ -11,11 +11,17 @@ class Distance
 private:
     int feet;
     float inches;
+    // Every object shares this variable
+    static int count;       // One variable per CLASS
 public:
     Distance(): feet(0), inches(0)  // Constructor with no arguments
-    {}
+    {
+        count++;
+    }
     Distance(int ft, float in): feet(ft), inches(in)    // Constructor with two arguments
-    {}
+    {
+        count++;
+    }
     void setDistance(int f, float i)
     {
         feet = f;
@@ -33,10 +39,14 @@ public:
         cout << "Feet: " << feet;
         cout << " Inches: " << inches;
     }
+    int getCount()
+    {
+        return count;
+    }
     void addDistance(Distance d1, Distance d2);
     Distance addDistance2(Distance d1);
 };
-
+int Distance::count = 0;
 // Main Program Program
 
 int main()
@@ -48,9 +58,11 @@ int main()
 
     cout << "\nd1 = ";
     d1.showDistance();
+    cout << "\nCount is " << d1.getCount() << endl;
 
     cout << "\nd2 = ";
     d2.showDistance();
+    cout << "\nCount is " << d2.getCount() << endl;
 
     cout << "\nd3 = ";
     d3.showDistance();
