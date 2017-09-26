@@ -47,6 +47,10 @@ public:
     Distance addDistance2(Distance d1);
 };
 int Distance::count = 0;
+
+// Prototypes
+void ShowCurrentCount(Distance d1);
+
 // Main Program Program
 
 int main()
@@ -76,6 +80,7 @@ int main()
     d4.showDistance();
     return 0;
 
+    ShowCurrentCount(d4);
 }
 
 // Function Definitions
@@ -105,4 +110,8 @@ Distance Distance::addDistance2(Distance d1)
     }
     temp.feet += feet + d1.feet;
     return temp;
+}
+void ShowCurrentCount(Distance d1)
+{
+    cout << "The current count is my super class is " << d1.getCount() << endl;
 }
