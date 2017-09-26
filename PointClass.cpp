@@ -8,6 +8,7 @@ using namespace std;
 // Constants, Structure, Classes
 class Point
 {
+// Data members
 private:
     float x;
     float y;
@@ -16,12 +17,12 @@ public:
     Point(): x(0.0), y(0.0) {}
 
     // Methods
-    void showPoint();
+    void showPoint()
     {
         cout << "X = " << x << endl;
         cout << "Y = " << y << endl;
     }
-    void updatePoint(float xnew, float ynew);
+    void updatePoint(float xnew, float ynew)
     {
         x = xnew;
         y = ynew;
