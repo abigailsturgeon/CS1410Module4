@@ -34,7 +34,7 @@ public:
         cout << " Inches: " << inches;
     }
     void addDistance(Distance d1, Distance d2);
-
+    Distance addDistance2(Distance d1);
 };
 
 // Main Program Program
@@ -56,9 +56,12 @@ int main()
     d3.showDistance();
 
     d4.addDistance(d2,d3);
-    cout << "\nd4 = " << endl;
+    cout << "\nd4 = ";
     d4.showDistance();
 
+    d4 = d4.addDistance2(d2);
+    cout << "\nd4 new  = ";
+    d4.showDistance();
     return 0;
 
 }
@@ -78,4 +81,16 @@ void Distance::addDistance(Distance d1, Distance d2)   // Belongs to the class. 
         feet++;         // Check for extra feet
     }
     feet += d1.feet + d2.feet;      // Add feet
+}
+Distance Distance::addDistance2(Distance d1)
+{
+    Distance temp;      //Initial values 0, 0
+    temp.inches = inches + d1.inches;
+    if(temp.inches >= 12.0)
+    {
+        temp.inches -= 12.0;
+        temp.feet += 1;
+    }
+    temp.feet += feet + d1.feet;
+    return temp;
 }
